@@ -64,3 +64,39 @@ console.log(ampersand, straightLine, opposite);
 // 0
 // NaN
 
+let userColor = undefined;
+let defaultColor = 'blue';
+let selectedColor = userColor || defaultColor;
+console.log(selectedColor);
+
+// In this code, statements are single lines, so we can remove the curly braces
+let randoVariable = 1;
+if (randoVariable > 0)
+    console.log('Greater than zero');
+else if (randoVariable === 0)
+    console.log('equal to zero');
+else
+    console.log('less than zero');
+
+
+// switch and case
+let role = 'guest';
+switch (role) {
+    case 'guest':
+        console.log('guest user');
+        break;
+
+    case 'moderator':
+        console.log('moderator');
+        break;
+
+    default:
+        console.log('unknown user');
+        break;
+}
+
+// for loops
+for (let i = 0; i < 5; i++) {
+    console.log('hello world', i);
+}
+
