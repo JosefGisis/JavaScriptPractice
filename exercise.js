@@ -31,3 +31,34 @@ function fizzBuzz(input) {
        return input;
     }
 }
+
+// exercise 3. Get string properties
+const movie = {
+    title: 'Blade Runner 2049',
+    release: 2017,
+    rating: 88,
+    director: 'Denise Villeneuve'
+}
+
+showProperties(movie);
+
+function showProperties(obj) {
+    for (let key in obj) {
+        if (typeof obj[key] === 'string') {
+            console.log(key + ': ' + obj[key]);
+        }
+    }
+}
+
+// ecercise 4. Show prime number
+let numberPick = 4;
+console.log(numberPick + showPrimes(numberPick));
+
+function showPrimes(limit) {
+    for (let i = 2; i < limit; i++) {
+        if (limit % i === 0) {
+            return ' is not a prime number';
+        }
+    }
+    return ' is a prime number';
+}
