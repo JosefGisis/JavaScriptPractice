@@ -100,3 +100,46 @@ for (let i = 0; i < 5; i++) {
     console.log('hello world', i);
 }
 
+// while loop
+let i = 0;
+while (i <= 5) {
+    if (i % 2 !== 0)
+        console.log(i);
+    i++;
+}
+
+// do while loops
+let j = 11;
+do {
+    if (j % 2 !== 0)
+        console.log(j);
+    j++;
+} while (j <= 5);
+
+// Infinite loops are very bad
+// let k = 0;
+// while (k < 5) {
+//     console.log(k);
+// }
+
+// for in loop
+const man = {
+    name: 'Yossi',
+    age: 24
+};
+
+for (let key in man)
+    console.log(key, man[key]);
+
+let colorList = ['green', 'blue', 'red'];
+for (let index in colorList) {
+    index = Number(index) + 1;
+    console.log(index, colorList[index]);
+}
+
+// for of loop. Similar to python for loop
+for (let color of colorList) {
+    console.log(color);
+}
+
+//
