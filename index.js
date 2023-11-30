@@ -142,4 +142,72 @@ for (let color of colorList) {
     console.log(color);
 }
 
-//
+// Objects literal syntax
+
+const circle = {
+    radius: 1,
+    location: {
+        x: 1,
+        y: 1
+    },
+    isVisible: true,
+    // draw method
+    draw: function() {
+        console.log('draw');
+    }
+};
+
+console.log(circle);
+circle.draw();
+
+//Factory function. uses return? Uses camel notation
+
+function createCircle(radius) {
+    return {
+        radius,
+        draw() {
+            console.log('draw');
+        }
+    };
+}
+
+createCircle(4);
+
+//constructor function. Pascal notation
+function Circle(radius, name) {
+    this.name = name;
+    this.radius = radius;
+    this.diameter = this.radius * 2;
+    this.circumference = this.radius * 2 * 3.14;
+    this.getSpecs = function() {
+        console.log('Radius for ' + this.name + ' is ' + this.radius);
+        console.log('Diameter for ' + this.name + ' is ' + this.diameter);
+        console.log('Circumference for ' + this.name + ' is ' + this.circumference);
+    }
+}
+
+let smallCircle = new Circle(1, 'smallCircle');
+smallCircle.getSpecs();
+
+let mediumCircle = new Circle(5, 'mediumCircle');
+mediumCircle.getSpecs();
+
+let largeCircle = new Circle(10, 'largeCircle');
+largeCircle.getSpecs();
+
+// Add properties
+largeCircle.color = 'blue';
+console.log(largeCircle);
+
+
+// constructor function
+console.log(largeCircle.constructor);
+
+const randoString = new String('Hello world');
+console.log(randoString.constructor);
+
+let anotherRandoString = 'rando string';
+console.log(anotherRandoString.constructor);
+
+// Everything in javascrip is an object, even functions!
+// We can also construct functions as a class.
