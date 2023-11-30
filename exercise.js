@@ -1,3 +1,4 @@
+console.log('________________________________________________________________________');
 // exercise 1. Function picks greater of two numbers
 let numberOne = 7;
 let numberTwo = 6;
@@ -62,3 +63,32 @@ function showPrimes(limit) {
     }
     return ' is a prime number';
 }
+
+// exercise 4
+
+function Address(street, address, city, state) {
+    this.street = street;
+    this.address = address;
+    this.city = city;
+    this.state = state;
+    this.getAddress = function() {
+        console.log(`You live at ${this.address} ${this.street} street in ${this.city}, ${this.state}.`);
+    };
+}
+ 
+const myAddress = new Address('Capital lane', 8, 'Lakewood', 'New Jersey');
+myAddress.getAddress();
+
+function createAddress(street, city, zip) {
+    return {
+        street,
+        city,
+        zip
+    };
+}
+
+console.log(createAddress('capital', 'lakewood', '08701'));
+myOtherAddress = createAddress('capital', 'lakewood', '08701');
+console.log(myOtherAddress);
+
+console.log('_____________________________________________________________________________');
