@@ -211,3 +211,110 @@ console.log(anotherRandoString.constructor);
 
 // Everything in javascrip is an object, even functions!
 // We can also construct functions as a class.
+
+// How to clone an object
+
+const circle = {
+    radius: 1,
+    draw() {
+        console.log('draw');
+    }
+}
+
+const another = {};
+
+for (let key in circle) {
+    another[key] = circle[key];
+}
+
+console.log(another);
+
+// Better way of doing this
+
+const anotherOne = Object.assign({color: 'yellow'}, circle);
+
+console.log(anotherOne);
+
+// Spread method
+const yetAnotherOne = { ...anotherOne };
+console.log(yetAnotherOne);
+
+//string object
+const stringExample = 'rando string';
+console.log(stringExample, stringExample.includes('rand'), stringExample.length, stringExample.trim(), stringExample.split(' '));
+
+// Template literals are made using backtick characters and do
+// not require escape characters. Similar to f strings in Python.
+
+let name = 'Yossi'
+
+const message = `
+Hello ${name}, 
+This is my 
+
+
+first' message`;
+
+console.log(message);
+
+// Arrays
+const numbers = [3, 4];
+numbers.push(5, 6);
+numbers.unshift(1, 2);
+numbers.splice(2, 0, 'a', 'b');
+console.log(numbers)
+
+console.log(numbers.includes(1));
+
+// In js, hoisting is the interpreter moving all name function to the top of the file
+// In unnamed functions, we cannot call the function before their declaration because they have not been hoisted
+
+// javascript is a dynamic language. When we do not conform to the parameter
+// stucture of a function, it does not throw and exception; rather, it can give
+// us some unexpected results.
+// We can also adapt to the number of arguments passed. Like so:
+
+function sum(...args) {
+    let total = args.reduce((a, b) => a + b, 7)
+    return total
+}
+
+console.log(sum(5, 2, 3, 4))
+
+function Circle(radius) {
+    return {
+        self: this,
+        radius,
+        draw: function() {
+            console.log('draw')
+        }
+    }
+}
+
+const newCircle = Circle.call({beans: 'potatos'}, 1)
+
+// bracket notation is useful if we do not know the name of the property
+// or there are invalid characters in the property name. 
+newCircle['beans'] = 'potatos'
+
+console.log(newCircle)
+console.log(newCircle['self'])
+
+delete newCircle.beans
+
+console.log(newCircle)
+
+// enumerating object properties
+function RandoObject() {
+    this.beans = 'potatos'
+    this.potatos = 'beans'
+    this.twig = 'berries'
+}
+
+const randoObject = new RandoObject()
+
+for (let keyValue of Object.entries(randoObject)) {
+    console.log(keyValue)
+}
+
+if ('beans' in randoObject) console.log('got beans')

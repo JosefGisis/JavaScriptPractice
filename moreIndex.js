@@ -1,44 +1,28 @@
-// How to clone an object
+// class abstraction. Hide the details and only show the essentials!
+// By using let and const as declarations within the object, others can
 
-const circle = {
-    radius: 1,
-    draw() {
-        console.log('draw');
+// no longer access it. 
+function Circle(radius) {
+    this.radius = radius
+    
+    let defaultLocation = { x: 0, y: 0 }
+
+    this.draw = function() {
+        console.log(this)
     }
+
+    Object.defineProperty(this, 'defaultLocation', {
+        get: function() {
+            return defaultLocation
+        },
+        set: function(value) {
+            if (!value.x || !value.y)
+                throw new Error('invalid location')
+            defaultLocation = value
+        }
+    })
 }
 
-const another = {};
-
-for (let key in circle) {
-    another[key] = circle[key];
-}
-
-console.log(another);
-
-// Better way of doing this
-
-const anotherOne = Object.assign({color: 'yellow'}, circle);
-
-console.log(anotherOne);
-
-// Spread method
-const yetAnotherOne = { ...anotherOne };
-console.log(yetAnotherOne);
-
-//string object
-const stringExample = 'rando string';
-console.log(stringExample, stringExample.includes('rand'), stringExample.length, stringExample.trim(), stringExample.split(' '));
-
-// Template literals are made using backtick characters and do
-// not require escape characters. Similar to f strings in Python.
-
-let name = 'Yossi'
-
-const message = `
-Hello ${name}, 
-This is my 
-
-
-first' message`;
-
-console.log(message);
+const circle = new Circle(10)
+circle.defaultLocation = 'peanuts'
+console.log(circle.defaultLocation)
