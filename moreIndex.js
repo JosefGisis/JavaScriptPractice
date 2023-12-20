@@ -26,3 +26,24 @@ function Circle(radius) {
 const circle = new Circle(10)
 circle.defaultLocation = 'peanuts'
 console.log(circle.defaultLocation)
+
+// nullish coalescence operator
+const value = 0
+const output = value || 'falsy'  // Outputs falsy
+const nullishOutput = value ?? 'nullish' // outputs 0 as it is not null
+
+// double ampersand (and) assigner operator
+const anotherValue = value && 'hello there' // Should output 0 as 0 is falsy
+
+// optional chaining
+const objectExample = {
+    propery1: {
+        subProperty: 'hello there'
+    },
+    property2: {
+        subProperty: 'hello there again'
+    }
+}
+
+const optionalObject = objectExample?.property1?.subProperty
+const anotherOptionalObject = objectExample?.property3?.subPropery
